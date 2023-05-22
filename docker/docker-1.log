@@ -1,6 +1,0 @@
-REPOSITORY                    TAG       IMAGE ID       CREATED         SIZE
-dockermonolith/docker-1.log   latest    f9ae6aca21e9   6 minutes ago   56.7MB
-ubuntu                        latest    bab8ce5c00ca   6 weeks ago     69.2MB
-ubuntu                        18.04     c1adc1968c7b   6 weeks ago     56.7MB
-docker/welcome-to-docker      latest    2b8f42a3e46d   6 weeks ago     13.6MB
-hello-world                   latest    46331d942d63   13 months ago   9.14kB
