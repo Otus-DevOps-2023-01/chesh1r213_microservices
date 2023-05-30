@@ -13,17 +13,35 @@ services:
       - 9292:9292/tcp
     networks:
       - ${FRONT}
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
   post:
     build: ./post-py
     image: ${USERNAME}/post:1.0
     networks:
       - ${BACK}
+    environment:
+      - POST_DATABASE_HOST=post_db
+      - POST_DATABASE=posts
+    depends_on:
+      - post_db
+    ports:
+      - "5000:5000"
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.post
   comment:
     build: ./comment
     image: ${USERNAME}/comment:1.0
     networks:
       - ${BACK}
       - ${FRONT}
+    
   prometheus:
     image: ${USERNAME}/prometheus
     ports:
@@ -53,3 +71,4 @@ networks:
   reddit:
   back_net:
   front_net:
+  
