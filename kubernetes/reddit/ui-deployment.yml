@@ -2,19 +2,19 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: comment-deployment
+  name: ui-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: comment
+      app: ui
   template:
     metadata:
-      name: comment
+      name: ui
       labels:
-        app: comment
+        app: ui
     spec:
       containers:
-      - image: kovtalex/comment:3.0
-        name: comment
+      - image: kovtalex/ui
+        name: ui
 
