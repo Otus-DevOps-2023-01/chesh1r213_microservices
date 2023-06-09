@@ -21,3 +21,4 @@ spec:
       containers:
       - image: chesh1r213/post
         name: post
+        component: post
