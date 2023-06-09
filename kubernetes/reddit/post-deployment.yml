@@ -16,7 +16,7 @@ spec:
       name: POST_DATABASE_HOST
       labels:
         app: post
-	component: post
+      	component: post
     spec:
       containers:
       - image: chesh1r213/post
