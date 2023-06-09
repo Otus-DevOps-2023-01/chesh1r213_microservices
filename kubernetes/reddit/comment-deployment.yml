@@ -13,7 +13,7 @@ spec:
       component: comment
   template:
     metadata:
-      name: comment
+      name: COMMENT_DATABASE_HOST
       labels:
         app: reddit
         component: comment

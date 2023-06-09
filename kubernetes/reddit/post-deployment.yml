@@ -7,11 +7,13 @@ spec:
   selector:
     matchLabels:
       app: post
+      component: post
   template:
     metadata:
-      name: post
+      name: POST_DATABASE_HOS
       labels:
         app: post
+	component: post
     spec:
       containers:
       - image: chesh1r213/post
