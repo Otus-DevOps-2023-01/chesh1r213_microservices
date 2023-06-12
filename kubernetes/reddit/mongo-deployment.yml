@@ -1,3 +1,5 @@
+### Test ya budu plakat' pozhaluysta zarabotay
+### name: mongo-gce-pd-storage
 ---
 apiVersion: apps/v1
 kind: Deployment
