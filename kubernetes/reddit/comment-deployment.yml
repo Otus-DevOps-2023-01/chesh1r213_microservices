@@ -13,11 +13,14 @@ spec:
       component: comment
   template:
     metadata:
-      name: COMMENT_DATABASE_HOST
+      name: comment
       labels:
         app: reddit
         component: comment
     spec:
       containers:
-      - image: chesh1r213/comment
+      - image: andreygnovikov/comment:latest
         name: comment
+        env:
+        - name: COMMENT_DATABASE_HOST
+          value: comment-db

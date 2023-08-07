@@ -1,6 +1,3 @@
-### Test ya budu plakat' pozhaluysta zarabotay
-### name: mongo-gce-pd-storage
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,11 +25,11 @@ spec:
       containers:
       - image: mongo:3.2
         name: mongo
-        volumeMounts: # Точка монтирования в контейнере (не в POD-е)
+        volumeMounts:
         - name: mongo-persistent-storage
           mountPath: /data/db
-      volumes: # Ассоциированные с POD-ом Volume-ы
+      volumes:
+      # name: mongo-gce-pd-storage
       - name: mongo-persistent-storage
-        # emptyDir: {} #При создании пода с такимтипом просто создается пустой docker volume
         persistentVolumeClaim:
-          claimName: mongo-pvc
+          claimName:  mongo-pvc
