@@ -1,13 +1,22 @@
----
-apiVersion: apps/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ui
   annotations:
+    kubernetes.io/ingress.class: traefik
     kubernetes.io/ingress.allow-http: "false"
+    traefik.frontend.rule.type: PathPrefixStrip
 spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: ui
+            port:
+              number: 9292
+  ingressClassName: nginx
   tls:
   - secretName: ui-ingress
-  backend:
-    serviceName: ui
-    servicePort: 9292

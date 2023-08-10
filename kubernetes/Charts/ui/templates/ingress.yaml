@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ template "ui.fullname" . }}
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    kubernetes.io/ingress.allow-http: "false"
+    traefik.frontend.rule.type: PathPrefixStrip
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: {{ template "ui.fullname" . }}
+            port:
+              number: {{ .Values.service.externalPort }}
+  ingressClassName: traefik
+  tls:
+  - secretName: ui-ingress
